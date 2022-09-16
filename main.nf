@@ -41,7 +41,3 @@ workflow {
    bcl2fastq(input_ch)
 }
 
-workflow.onComplete {
-  def fastq_output_file = new File("${params.output_dir}/fastq_complete.txt")
-  fastq_output_file.write "FastQ process is completed!!\n"
-}

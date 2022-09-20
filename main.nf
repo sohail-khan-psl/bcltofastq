@@ -16,23 +16,7 @@ process bcl2fastq {
     file "Stats"
 
     """
-    bcl2fastq \
-        --use-bases-mask=Y26,I8,Y98 \
-        --create-fastq-for-index-reads \
-        --minimum-trimmed-read-length=8 \
-        --mask-short-adapter-reads=8 \
-        --ignore-missing-positions \
-        --ignore-missing-controls \
-        --ignore-missing-filter \
-        --ignore-missing-bcls \
-        --runfolder-dir ${input_dir} \
-        --output-dir . \
-        --sample-sheet ${input_dir}/cellranger-tiny-bcl-simple-1.2.0.csv \
-        --interop-dir ${input_dir}/InterOp \
-        --input-dir ${input_dir}/Data/Intensities/BaseCalls \
-        --stats-dir ./Stats \
-        --reports-dir ./Reports \
-        --no-lane-splitting
+    bcl2fastq 
     """
 }
 

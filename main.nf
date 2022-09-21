@@ -8,7 +8,7 @@ process bcl2fastq {
   publishDir "${params.output_dir}", mode: 'copy', overwrite: true
 
   input:
-    path command_string
+    val command_string
 
   output:
     file "*.fastq.gz"

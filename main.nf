@@ -8,7 +8,7 @@ process bcl2fastq {
   publishDir "${params.output_dir}", mode: 'copy', overwrite: true
 
   input:
-    path input_dir
+    path command_string
 
   output:
     file "*.fastq.gz"
@@ -16,12 +16,12 @@ process bcl2fastq {
     file "Stats"
 
     """
-    bcl2fastq 
+    ${command_string}
     """
 }
 
 workflow {
-   def input_ch = Channel.fromPath(params.input_dir)
+   def input_ch = Channel.fromPath(params.command_string)
    bcl2fastq(input_ch)
 }
 

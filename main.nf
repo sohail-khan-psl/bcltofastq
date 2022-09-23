@@ -17,22 +17,22 @@ process bcl2fastq {
 
     """
     bcl2fastq \
-        --use-bases-mask=Y26,I8,Y98 \
-        --create-fastq-for-index-reads \
-        --minimum-trimmed-read-length=8 \
-        --mask-short-adapter-reads=8 \
-        --ignore-missing-positions \
-        --ignore-missing-controls \
-        --ignore-missing-filter \
-        --ignore-missing-bcls \
-        --runfolder-dir ${input_dir} \
-        --output-dir . \
-        --sample-sheet ${input_dir}/cellranger-tiny-bcl-simple-1.2.0.csv \
-        --interop-dir ${input_dir}/InterOp \
-        --input-dir ${input_dir}/Data/Intensities/BaseCalls \
+        --use-bases-mask=${params.use_bases_mask} \
+        --create-fastq-for-index-reads=${params.create_fastq_for_index_reads} \
+        --minimum-trimmed-read-length=${params.minimum_trimmed_read_length} \
+        --mask-short-adapter-reads=${params.mask_short_adapter_reads} \
+        --ignore-missing-positions=${params.ignore_missing_positions} \
+        --ignore-missing-controls=${params.ignore_missing_controls} \
+        --ignore-missing-filter=${params.ignore_missing_filter} \
+        --ignore-missing-bcls=${params.ignore_missing_bcls} \
+        --runfolder-dir=${params.input_dir} \
+        --output-dir=${params.output_dir} \
+        --sample-sheet ${params.input_dir}/${params.sample_sheet} \
+        --interop-dir ${params.input_dir}/InterOp \
+        --input-dir ${params.input_dir}/Data/Intensities/BaseCalls \
         --stats-dir ./Stats \
         --reports-dir ./Reports \
-        --no-lane-splitting
+        --no-lane-splitting=${params.no_lane_splitting}
     """
 }
 
